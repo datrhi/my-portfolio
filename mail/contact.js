@@ -15,14 +15,8 @@ $(function () {
             $this.prop("disabled", true);
 
             $.ajax({
-                url: "contact.php",
+                url: `https://api.telegram.org/bot5428060676:AAHbi_SZ9U2sz3b5BLQVSFHkyEOQ5eKu6W8/sendMessage?chat_id=5457193074&text=You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: ${name}\n\n\nEmail: ${email}\n\nSubject: ${subject}\n\nMessage: ${message}`,
                 type: "POST",
-                data: {
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                },
                 cache: false,
                 success: function () {
                     $('#success').html("<div class='alert alert-success'>");
