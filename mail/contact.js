@@ -13,9 +13,10 @@ $(function () {
 
             $this = $("#sendMessageButton");
             $this.prop("disabled", true);
-
+            var text = `You have received a new message from your website contact form.\n\nHere are the details:\n\nName: ${name}\n\n\nEmail: ${email}\n\nSubject: ${subject}\n\nMessage: ${message}`
+            text = encodeURIComponent(text)
             $.ajax({
-                url: `https://api.telegram.org/bot5428060676:AAHbi_SZ9U2sz3b5BLQVSFHkyEOQ5eKu6W8/sendMessage?chat_id=5457193074&text=You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: ${name}\n\n\nEmail: ${email}\n\nSubject: ${subject}\n\nMessage: ${message}`,
+                url: `https://api.telegram.org/bot5428060676:AAHbi_SZ9U2sz3b5BLQVSFHkyEOQ5eKu6W8/sendMessage?chat_id=5457193074&text=${text}`,
                 type: "POST",
                 cache: false,
                 success: function () {
